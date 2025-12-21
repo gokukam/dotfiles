@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Description: Change brightness and show a dunst-based indicator
+# Source: Arch Wiki (https://wiki.archlinux.org/title/Dunst#Using_dunstify_as_volume/brightness_level_indicator)
+
+# Arbitrary but unique message tag
+msgTag="mybrightness"
+
+# Change the brightness using brightnessctl
+brightnessctl "$@" > /dev/null
+
+# Query brightnessctl for the current brightness
+current=$(brightnessctl g)
+max=$(brightnessctl m)
+brightness=$((current * 100 / max))
+
+# Show the brightness notification
+dunstify -a "changeIndicator" -u normal -i whitebalance -h string:x-dunst-stack-tag:$msgTag \
+-h int:value:$brightness "Brightness: ${brightness}%"

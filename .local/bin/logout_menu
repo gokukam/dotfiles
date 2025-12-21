@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Script to generate a logout menu using rofi
+
+MENU="rofi -dmenu -i -l 5 -p"
+
+# Display menu of options
+choice=$(echo -e "Lock screen\nSuspend\nLogout\nHibernate\nShutdown\nReboot" | ${MENU} "Logout menu")
+[ -z "${choice}" ] && exit
+
+case $choice in
+"Lock screen" )
+    slock;;
+"Suspend" )
+    if [[ "$(echo -e "No\nYes" | ${MENU} "${choice}?")" == "Yes" ]]; then
+        systemctl suspend
+    else
+        exit 0
+    fi
+    ;;
+"Logout" )
+    if [[ "$(echo -e "No\nYes" | ${MENU} "${choice}?")" == "Yes" ]]; then
+        qtile cmd-obj -o cmd -f shutdown
+    else
+        exit 0
+    fi
+    ;;
+"Hibernate" )
+    if [[ "$(echo -e "No\nYes" | ${MENU} "${choice}?")" == "Yes" ]]; then
+        systemctl hibernate
+    else
+        exit 0
+    fi
+    ;;
+"Shutdown" )
+    if [[ "$(echo -e "No\nYes" | ${MENU} "${choice}?")" == "Yes" ]]; then
+        systemctl poweroff
+    else
+        exit 0
+    fi
+    ;;
+"Reboot" )
+    if [[ "$(echo -e "No\nYes" | ${MENU} "${choice}?")" == "Yes" ]]; then
+        systemctl reboot
+    else
+        exit 0
+    fi
+    ;;
+* )
+    exit 0
+    ;;
+esac

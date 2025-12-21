@@ -1,0 +1,65 @@
+set notification-error-bg       "#f92672" # Red
+set notification-error-fg       "#f8f8f2" # Foreground
+set notification-warning-bg     "#f4bf75" # Orange
+set notification-warning-fg     "#75715e" # Selection
+set notification-bg             "#272822" # Background
+set notification-fg             "#f8f8f2" # Foreground
+
+set completion-bg               "#272822" # Background
+set completion-fg               "#66d9ef" # Comment
+set completion-group-bg         "#272822" # Background
+set completion-group-fg         "#a6e22e" # Comment
+set completion-highlight-bg     "#75715e" # Selection
+set completion-highlight-fg     "#f8f8f2" # Foreground
+
+set index-bg                    "#272822" # Background
+set index-fg                    "#f8f8f2" # Foreground
+set index-active-bg             "#75715e" # Current Line
+set index-active-fg             "#f8f8f2" # Foreground
+
+set inputbar-bg                 "#272822" # Background
+set inputbar-fg                 "#a1efe4" # Foreground
+set statusbar-bg                "#272822" # Background
+set statusbar-fg                "#f8f8f2" # Foreground
+
+set highlight-color             "rgba(244, 191, 117, 0.5)" # Orange
+set highlight-active-color      "rgba(174, 129, 255, 0.5)" # Pink
+set highlight-fg                "#272822" # Foreground
+
+set default-bg                  "#404040" # Background
+set default-fg                  "#f8f8f2" # Foreground
+
+set render-loading              true
+set render-loading-fg           "#272822" # Background
+set render-loading-bg           "#f8f8f2" # Foreground
+
+# Recolor mode settings
+set recolor "true"
+set recolor-lightcolor          "#272822" # Background
+set recolor-darkcolor           "#f8f8f2" # Foreground
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+set render-loading "false"
+
+# Font setting
+set font "iosevka nerd font bold 9"
+
+# Automatically adjust the document to best fit
+set adjust-open best-fit
+
+# Stop at page boundries
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+
+# Set the title to the filename
+set window-title-basename true
+set selection-clipboard "clipboard"
+
+# Scroll steps with j/k
+set scroll-step 50
+
+# Adjusting the document
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen

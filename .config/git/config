@@ -1,0 +1,7 @@
+[user]
+	name = Gokul Kamat
+	email = gokulgkamat@proton.me
+[init]
+	defaultBranch = main
+[http]
+	sslVerify = true

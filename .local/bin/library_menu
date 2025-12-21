@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+shopt -s lastpipe
+MENU="rofi -dmenu -i -l 15 -p"
+
+book_lib() {
+    DOC="$HOME/Documents/Books"
+
+    category=$(find "$DOC"/* -type d | sed 's!.*/!!' | sort | ${MENU} "Choose category")
+    [ -z "${category}" ] && exit
+
+    choice=$(find "$DOC/$category" -type f | xargs -I{} basename {} | sed 's/\..*//g' | sort | ${MENU} "Read")
+    [ -z "${choice}" ] && exit
+
+    book=$(find "$DOC/$category" -type f -name "${choice}.*")
+    zathura "$book"
+}
+
+movie_lib() {
+    VID="$HOME/Videos/Movies"
+
+    category=$(find "$VID"/* -type d | sed 's!.*/!!' | sort | ${MENU} "Choose category")
+    [ -z "${category}" ] && exit
+
+    choice=$(find "$VID/$category" -type f | xargs -I{} basename {} | sed 's/\..*//g' | sort | ${MENU} "Watch")
+    [ -z "${choice}" ] && exit
+
+    movie=$(find "$VID/$category" -type f -name "${choice}.*")
+    mpv "$movie"
+}
+
+# Open library menu to choose between book library and movie library
+library=$(echo -e "Books\nMovies" | ${MENU} "Library")
+[ -z "${library}" ] && exit
+
+if [[ "$library" == "Books" ]]; then
+    book_lib
+elif [[ "$library" == "Movies" ]]; then
+    movie_lib
+else
+    exit 1
+fi

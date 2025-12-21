@@ -1,0 +1,50 @@
+#!/bin/bash
+# changing "ls" to "eza"
+alias ls='eza -hal --color=always --group-directories-first --icons'
+alias la='eza -a --color=always --group-directories-first'
+
+# pacman and paru
+alias pacsyu='sudo pacman -Syu'                  # update standard pkgs
+alias parsua='paru -Sua'                         # update AUR pkgs
+alias parsyu='paru -Syu'                         # update standard and AUR pkgs
+alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned pkgs
+
+# get fastest mirrors using reflector
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+
+# Colorize grep output
+alias grep='grep --color=auto'
+
+# adding flags
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias df='df -h'
+alias mkdir='mkdir -pv'
+
+# vim
+alias vim=nvim
+
+# git
+alias addup="git add -u"
+alias addall="git add ."
+alias branch="git branch"
+alias checkout="git checkout"
+alias clone="git clone"
+alias commit="git commit -m"
+alias fetch="git fetch"
+alias pull="git pull origin"
+alias push="git push origin"
+alias gist="git status"
+alias tag="git tag"
+alias newtag="git tag -a"
+
+# get error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# bare git repo alias for dotfiles (https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git)
+alias dots="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# Merge Xresources
+alias merge='xrdb -merge ~/.Xresources'
