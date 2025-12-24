@@ -109,14 +109,9 @@ keys = [
     # Media keys
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Take a screenshot"),
     Key(
-        [],
-        "XF86AudioLowerVolume",
-        lazy.spawn("change_volume -ud 1"),
-        desc="Volume down",
+        [], "XF86AudioLowerVolume", lazy.spawn("change_volume -d 1"), desc="Volume down"
     ),
-    Key(
-        [], "XF86AudioRaiseVolume", lazy.spawn("change_volume -ui 1"), desc="Volume up"
-    ),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("change_volume -i 1"), desc="Volume up"),
     Key([], "XF86AudioMute", lazy.spawn("pamixer -t"), desc="Mute/Unmute audio"),
     Key(
         [],
