@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script to generate a logout menu using rofi
 
-MENU="rofi -dmenu -i -l 5 -p"
+MENU="rofi -dmenu -i -l 6 -p"
 
 # Display menu of options
 choice=$(echo -e "Lock screen\nSuspend\nLogout\nHibernate\nShutdown\nReboot" | ${MENU} "Logout menu")
