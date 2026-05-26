@@ -8,5 +8,7 @@ picom --daemon &
 nm-applet &
 blueman-applet &
 flameshot &
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 # emacs --daemon &
 emacs --init-directory=~/.config/emacs --daemon &

@@ -112,7 +112,7 @@ keys = [
         [], "XF86AudioLowerVolume", lazy.spawn("change_volume -d 1"), desc="Volume down"
     ),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("change_volume -i 1"), desc="Volume up"),
-    Key([], "XF86AudioMute", lazy.spawn("pamixer -t"), desc="Mute/Unmute audio"),
+    Key([], "XF86AudioMute", lazy.spawn("change_volume -t"), desc="Mute/Unmute audio"),
     Key(
         [],
         "XF86AudioPlay",
@@ -246,7 +246,7 @@ layouts = [
 
 widget_defaults = dict(
     font="Iosevka Nerd Font",
-    fontsize=12,
+    fontsize=13,
     padding=3,
     foreground=colors["white"],
     background=colors["black"],
@@ -263,7 +263,7 @@ screens = [
                 widget.GroupBox(
                     highlight_method="block",
                     font="Ubuntu Bold",
-                    fontsize=10,
+                    fontsize=12,
                     active=colors["cyan"],
                     inactive=colors["grey"],
                     this_current_screen_border=colors["magenta"],
@@ -312,15 +312,15 @@ screens = [
                 widget.Sep(padding=10, foreground=colors["grey"]),
                 widget.DoNotDisturb(
                     foreground=colors["red"],
-                    fontsize=15,
+                    fontsize=18,
                     disabled_icon=" ",
                     enabled_icon=" ",
                     padding=0,
                 ),
-                widget.Systray(icon_size=18),
+                widget.Systray(icon_size=20),
                 widget.Spacer(length=8),
             ],
-            24,
+            30,
             margin=[5, 2, 2, 2],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
