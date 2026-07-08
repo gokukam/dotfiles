@@ -146,3 +146,4 @@ dynamic_padding = false
 opacity = 1.0
 dynamic_title = true
 padding = { x = 4, y = 4 }
+dimensions = { columns = 80, lines = 24 }
